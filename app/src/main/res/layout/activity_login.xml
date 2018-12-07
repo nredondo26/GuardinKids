@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context="com.nestnetgroup.guardinkids.Login"
+>
+
+    <!--android:background="@drawable/fondo" tools:showIn="@layout/login"-->
+
+<android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/appBarLayout"
+
+    android:theme="@style/AppTheme.AppBarOverlay">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/fondo4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+      >
+
+        <Button
+            android:id="@+id/Btncrear_cuenta"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.62"
+            android:layout_margin="5dp"
+            android:background="@android:color/transparent"
+            android:text="CREAR CUENTA"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.v7.widget.Toolbar>
+
+</android.support.design.widget.AppBarLayout>
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:id="@+id/linearLayout"
+    android:layout_centerVertical="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:weightSum="1">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/er_email"
+        >
+
+        <!--app:hintTextAppearance="@style/MyHintText"-->
+
+        <EditText
+            android:id="@+id/EdtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/colorAccent" />
+        <!-- android:theme="@style/MyEditText"  -->
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/er_pass"
+
+        app:passwordToggleEnabled="true">
+
+        <!--app:hintTextAppearance="@style/MyHintText"-->
+
+        <EditText
+            android:id="@+id/EdtContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contraseña"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorAccent" />
+        <!--android:theme="@style/MyEditText"-->
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/BtnLogin"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/style_button"
+        android:text="@string/aceptar" />
+
+
+
+
+</LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/logoguardiankids" />
+
+</RelativeLayout >

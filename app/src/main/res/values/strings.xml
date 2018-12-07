@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">GuardianKids</string>
+    <string name="title_activity_codigo_confirmacion">Codigo_confirmacion</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_menu_principal">Menu_principal</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="textview">TextView</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="No_cuenta">No tengo una cuenta</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="email">E-mail</string>
+
+
+    <string name="terminos0">He leído y acepto los </string>
+    <string name="terminos1"> términos y condiciones.</string>
+    <string name="inicios">Inicie sesión</string>
+    <string name="registrarse">Registrarse</string>
+</resources>

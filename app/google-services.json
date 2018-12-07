@@ -1,0 +1,94 @@
+{
+  "project_info": {
+    "project_number": "949873041456",
+    "firebase_url": "https://spicochat-03-01-2018.firebaseio.com",
+    "project_id": "spicochat-03-01-2018",
+    "storage_bucket": "spicochat-03-01-2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949873041456:android:c1ca7c5e129674d5",
+        "android_client_info": {
+          "package_name": "com.nestnetgroup.guardinkids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949873041456-k8bq2bf6mlrhkii4ql4nhk90gqqvol17.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "949873041456-k8bq2bf6mlrhkii4ql4nhk90gqqvol17.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfcy-wTFAk8aBfWo6cUgUtqxO0hWI2DCg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949873041456:android:e7d9f8e40f70ec40",
+        "android_client_info": {
+          "package_name": "com.nestnetgroup.psicochatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949873041456-93a6g8ofil62c5fgnkfm7g0olspi4fll.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nestnetgroup.psicochatapp",
+            "certificate_hash": "f13453c941cfe26b4098bee2f69ee7e2aa568528"
+          }
+        },
+        {
+          "client_id": "949873041456-k8bq2bf6mlrhkii4ql4nhk90gqqvol17.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "949873041456-k8bq2bf6mlrhkii4ql4nhk90gqqvol17.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfcy-wTFAk8aBfWo6cUgUtqxO0hWI2DCg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949873041456-k8bq2bf6mlrhkii4ql4nhk90gqqvol17.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
