@@ -1,14 +1,12 @@
 package com.nestnetgroup.guardinkids.frame;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.android.volley.AuthFailureError;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -27,28 +25,27 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.nestnetgroup.guardinkids.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.android.volley.Request.*;
+import static com.android.volley.Request.Method;
 
 public class reportes extends Fragment {
 
 
     private  static final String URL_ELIMINAR="http://plataformagk.com/deletereportandroid";
-    private  static final String URL="http://plataformagk.com/consultar_reportes_android";
-    private  static final String URL_imagen="http://appguardian.co/newsite/android/lib/consulta-img-reportes.php";
     private RequestQueue rq;
     String ID_USUARIO;
     ImageView image_reporte,imageButtoneliminar;
     TextView txt_nombre_dispo,txt_fecha,textView7;
     String id_img_consultar;
     ConstraintLayout contenedor;
-    ProgressDialog progressDialo;
     CardView cardView;
     ImageButton imageButton,imageButton2,btn_izquierda,btn_derecha;
     int posicion;
@@ -56,11 +53,11 @@ public class reportes extends Fragment {
     String ideliminar;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v=inflater.inflate(R.layout.fragment_reportes,container, false);
 
-        rq = Volley.newRequestQueue(getActivity());
+        rq = Volley.newRequestQueue(Objects.requireNonNull(getActivity()));
         ID_USUARIO= Mostrarpreferencia_id_usuario();
         imageButton=v.findViewById(R.id.imageButton);
         image_reporte=v.findViewById(R.id.image_reporte);
@@ -218,17 +215,15 @@ public class reportes extends Fragment {
                             Log.e("Algo salio mal",response);
 
                         }
-
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Error->", error.toString());
-               // progressDialo.dismiss();
             }
         }) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 Map<String, String> parametros = new HashMap<>();
                 parametros.put("id", id_img_consultar);
                 return parametros;
@@ -237,25 +232,10 @@ public class reportes extends Fragment {
         rq.add(str);
     }
 
-
-
     public String Mostrarpreferencia_id_usuario(){
         SharedPreferences prefs = getActivity().getSharedPreferences("Cuenta", Context.MODE_PRIVATE);
         String valor = prefs.getString("Id_usuario", "Not_config");
         return valor;
-    }
-
-
-    private void alert_dialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Debe proporcionar permisos  para guardar la imagen en el dispositivo")
-                .setTitle("GuardianKids")
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        builder.show();
     }
 
 
