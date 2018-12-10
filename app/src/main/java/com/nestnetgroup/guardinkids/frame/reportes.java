@@ -1,6 +1,8 @@
 package com.nestnetgroup.guardinkids.frame;
 
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -42,15 +44,16 @@ public class reportes extends Fragment {
     private  static final String URL_ELIMINAR="http://plataformagk.com/deletereportandroid";
     private RequestQueue rq;
     String ID_USUARIO;
-    ImageView image_reporte,imageButtoneliminar;
+    ImageView image_reporte, imageButtoneliminar, image_amplia;
     TextView txt_nombre_dispo,txt_fecha,textView7;
     String id_img_consultar;
     ConstraintLayout contenedor;
     CardView cardView;
-    ImageButton imageButton,imageButton2,btn_izquierda,btn_derecha;
+    ImageButton imageButton, imageButton2, btn_izquierda, btn_derecha, close;
     int posicion;
     JSONArray json=null;
     String ideliminar;
+    Dialog img_ampliad;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,29 +83,40 @@ public class reportes extends Fragment {
             }
         });
 
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //dialog_amplia(bitmap);
+            }
+        });
+
         btn_izquierda.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
 
                 if(json!=null){
-                  try {
-                     int n=json.length();
+                    try {
+                        int n=json.length();
 
-                      if(posicion==0){
-                          id_img_consultar=String.valueOf(json.getInt(n-1));
-                          consulta_img(id_img_consultar);
-                          ideliminar=id_img_consultar;
-                          posicion=n-1;
-                      }else {
-                          id_img_consultar=String.valueOf(json.getInt(posicion-1));
-                          consulta_img(id_img_consultar);
-                          ideliminar=id_img_consultar;
-                          posicion=posicion-1;
-                      }
-                  } catch (JSONException e) {
-                      e.printStackTrace();
-                  }
-              }
+                        if(posicion==0){
+                            id_img_consultar=String.valueOf(json.getInt(n-1));
+                            consulta_img(id_img_consultar);
+                            //   textView7.setText("Reporte " + Integer.parseInt(String.valueOf(posicion+1))+ " de "+json.length());
+                            ideliminar=id_img_consultar;
+                            posicion=n-1;
+                        }else {
+                            id_img_consultar=String.valueOf(json.getInt(posicion-1));
+                            consulta_img(id_img_consultar);
+                            //   textView7.setText("Reporte " + Integer.parseInt(String.valueOf(posicion+1))+ " de "+json.length());
+                            ideliminar=id_img_consultar;
+                            posicion=posicion-1;
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
 
@@ -132,6 +146,22 @@ public class reportes extends Fragment {
         return v;
     }
 
+    /*public  void dialog_amplia(ViewTarget<ImageView, Drawable> bitmap){
+
+        img_ampliad=new Dialog(getActivity());
+        img_ampliad.setContentView(R.layout.dialogo_img);
+        image_amplia=img_ampliad.findViewById(R.id.imageView2);
+        close=img_ampliad.findViewById(R.id.imageButton6);
+        image_amplia.setImageBitmap(bitmap);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_ampliad.cancel();
+            }
+        });
+        img_ampliad.show();
+    }*/
+
     private void consulta_img(final String id){
         final String url1 = "http://plataformagk.com/consultar_reportes_imagen/"+id;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url1,null,
@@ -145,6 +175,8 @@ public class reportes extends Fragment {
                                 Glide.with(Objects.requireNonNull(getContext())).load("http://plataformagk.com/captures/"+object.getString("imagen")).into(image_reporte);
                                 txt_nombre_dispo.setText(object.getString("nombre_equipo"));
                                 txt_fecha.setText(object.getString("fecha"));
+                                textView7.setText("Reporte " + Integer.parseInt(String.valueOf(posicion + 1)) + " de " + json.length());
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -175,6 +207,8 @@ public class reportes extends Fragment {
                                 Glide.with(Objects.requireNonNull(getContext())).load("http://plataformagk.com/captures/"+object.getString("imagen")).into(image_reporte);
                                 txt_nombre_dispo.setText(object.getString("nombre_equipo"));
                                 txt_fecha.setText(object.getString("fecha"));
+
+
                                 ideliminar=object.getString("id");
                                 json = new JSONArray();
                                 for(int i = 0; i < response.length(); i++){
@@ -182,6 +216,8 @@ public class reportes extends Fragment {
                                     String id = jresponse.getString("id");
                                     json.put(id);
                                   }
+
+                                textView7.setText("Reporte 1 de " + json.length());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
